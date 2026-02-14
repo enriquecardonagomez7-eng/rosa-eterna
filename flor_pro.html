@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Flor Eterna + Mensaje</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    background: radial-gradient(circle at center, #111, #000);
+    font-family: 'Georgia', serif;
+    color:white;
+}
+
+.main{
+    display:flex;
+    width:100%;
+    height:100%;
+}
+
+/* LADO IZQUIERDO */
+.message{
+    width:50%;
+    padding:60px;
+    overflow-y:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.message-box{
+    max-width:480px;
+    font-size:20px;
+    line-height:2;
+    text-align:justify;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* LADO DERECHO */
+.flower-section{
+    width:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+/* Imagen más grande */
+.flower-section img{
+    width:420px;
+    max-width:90%;
+    border-radius:25px;
+    box-shadow:0 0 90px rgba(255,200,150,0.45);
+}
+
+/* Brillo ajustado */
+.shine{
+    position:absolute;
+    width:420px;
+    max-width:90%;
+    height:100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.45),
+        transparent
+    );
+    transform: skewX(-20deg);
+    animation: glass 4s infinite;
+}
+
+@keyframes glass{
+    0%{ left:30%; }
+    100%{ left:60%; }
+}
+
+/* Pétalos */
+.petal{
+    position:absolute;
+    width:28px;
+    height:28px;
+    background: radial-gradient(circle,#ff4d6d,#a0002a);
+    border-radius:50% 50% 50% 0;
+    transform: rotate(45deg);
+    animation: fall linear infinite;
+}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-60px) rotate(0deg);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(450px) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* Animación texto */
+@keyframes fadeIn{
+    from{opacity:0; transform:translateX(-20px);}
+    to{opacity:1; transform:translateX(0);}
+}
+
+/* Responsive */
+@media(max-width:900px){
+    .main{
+        flex-direction:column;
+    }
+    .message, .flower-section{
+        width:100%;
+        height:50%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="main">
+
+    <!-- MENSAJE -->
+    <div class="message">
+        <div class="message-box">
+            En esta representación de la flor quiero demostrar mi amor.
+            Cada pétalo simboliza el amor desbordado que siento cuando estoy a tu lado.
+            <br><br>
+            Como una rosa eterna, el tiempo parece no avanzar…
+            se detiene cuando sonríes,
+            cuando platicamos, conectamos
+            y entendemos que no somos dos extraños.
+            <br><br>
+            Somos dos personas que descubrieron que están enamoradas.
+            <br><br>
+            El frasco de cristal representa lo frágiles que podemos ser,
+            lo delicado que es lo que sentimos,
+            y cómo a veces nos encerramos en nuestro propio mundo…
+            un mundo donde solo existimos tú y yo.
+            <br><br>
+            Y aun así, en esa fragilidad, florece algo eterno.
+        </div>
+    </div>
+
+    <!-- FLOR -->
+    <div class="flower-section">
+        <img src="https://i.imgur.com/Sm6MNhF.jpeg">
+
+        <div class="shine"></div>
+
+        <div class="petal" style="left:55%; animation-duration:6s;"></div>
+        <div class="petal" style="left:65%; animation-duration:5s;"></div>
+        <div class="petal" style="left:60%; animation-duration:7s;"></div>
+    </div>
+
+</div>
+
+</body>
+</html>
